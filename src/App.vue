@@ -1,30 +1,45 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+<v-app > <my-navbar></my-navbar>
+
+  <div class="app">
+
+      <router-view/>
+  </div>
+  </v-app>
 </template>
 
+<script>
+import MyNavbar from "@/components/UI/NavBar";
+export default {
+
+  name: 'App',
+  components:{
+    MyNavbar,
+
+  },
+  data(){
+  return{
+  }
+  },
+  methods:{
+    fun () {
+
+      console.log(_.compact([1,2,3,4,0,'',undefined,null,NaN,1]));
+    }
+  },
+  mounted() {
+   this.fun();
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .app {
+    padding: 20px;
+  }
 </style>
